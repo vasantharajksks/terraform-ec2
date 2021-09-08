@@ -5,7 +5,7 @@ variable "aws_region" {
 
 variable "key_name" {
   description = " SSH keys to connect to ec2 instance"
-  default     =  "your_pem_keyname"
+  default     =  "test"
 }
 
 variable "instance_type" {
@@ -15,10 +15,15 @@ variable "instance_type" {
 
 variable "ami_id" {
   description = "ami id"
-  default     =  "ami-0b9064170e32bde34"
+  default     =  "ami-087c17d1fe0178315"
 }
 
 variable "security_group" {
   description = "SG's for ec2"
-  default     =  "sample"
-}  
+  default     =  "sg-00ec8e66e6e7ab58b"
+}
+
+variable "subnet_id" {
+  description = "Subnet Id"
+  default     =  "subnet-0412d404b91a1ecea"
+}
