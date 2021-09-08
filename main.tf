@@ -12,7 +12,7 @@ resource "aws_instance" "Instance1" {
   tags= {
     Name = "jenkins_instance"
   }
-  user_data = file("userdata.sh")
+  user_data = "${file("userdata.sh")}"
 }
 
 output "jenkins_endpoint" {
