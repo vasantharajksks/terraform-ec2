@@ -2,6 +2,10 @@ provider "aws" {
   region = var.aws_region
 }
 
+data "template_file" "user_data" {
+template = "${file("./userdata.sh")}"
+}
+
 #Create security group with firewall rules
 resource "aws_security_group" "security_jenkins_port" {
   name        = "security_jenkins_port"
@@ -43,7 +47,7 @@ resource "aws_instance" "Instance1" {
   tags= {
     Name = "jenkins_instance"
   }
-  user_data = "${file("userdata.sh")}"
+  user_data = "${data.template_file.user_data.rendered}"
 }
 
 output "jenkins_endpoint" {
